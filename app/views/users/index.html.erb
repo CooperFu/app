@@ -1,0 +1,23 @@
+<h1>User 列表</h1>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to '修改', edit_user_path(user) %>
+            <%= link_to '删除', user_path(user), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%= link_to '添加新用户', new_user_path %>
